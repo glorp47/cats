@@ -1,4 +1,15 @@
 class CatRentalRequestsController < ApplicationController
+
+  before_action :validates_owner, only: [:approve, :deny]
+
+  def validates_owner
+    fail
+    unless current_user.id == params[:owner_id]
+      flash[:errors] = "YOU KNOW YOU DONT OWN THAT CAT"
+      redirect_to :cats_url
+    end
+  end
+
   def approve
     current_cat_rental_request.approve!
     redirect_to cat_url(current_cat)

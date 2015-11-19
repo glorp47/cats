@@ -3,10 +3,13 @@
 <br>
 <br>
 
-<form class="" action="session_index_url"  method="POST">
+<form class="" action="/session"  method="POST">
+  <input
+   type="hidden"
+   name="authenticity_token"
+   value="<%= form_authenticity_token %>">
 
-
-<input type="text" name="user[user_name]" value="" placeholder="USER IS YOU MAN">
-<input type="password" name="user[password]" value="" placeholder="THIS ONES ALL YOU">
-<input type="submit" value="PRESS THE BUTTON AND HOPE IT WORKS">
+  <input type="text" name="user[username]" value="" placeholder="USER IS YOU MAN">
+  <input type="password" name="user[password]" value="" placeholder="THIS ONES ALL YOU">
+  <input type="submit" value="PRESS THE BUTTON AND HOPE IT WORKS">
 </form>
